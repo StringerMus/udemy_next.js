@@ -13,25 +13,27 @@
 </head>
 <body>
 
-    <div id="app"></div>
+    <div id="app"></div> <!--This is the target container where the React compenent will be rendered-->
 
-    <script type="text/babel">
+    <script type="text/babel"> //indicates the code inside the script tags will be processed by Babel, a JS compiler that allows you to write JSX
 
-        const app = document.getElementById("app");
+        const app = document.getElementById("app"); //selects the "app" element from the DOM stores it in the app variable.
 
-        function Homepage(){
+        function Homepage(){ //Homepage component
 
-            const[likes, setLikes] = React.useState(0)
+            const[likes, setLikes] = React.useState(0) //'0' is the initial number of likes
 
             return (
+                //Button triggers an onClick event when clicked.
+                //The onClick event handler calls setLikes(likes + 1), which updates the likes state by increasing it by 1 each time the button is clicked.
                 <div>
                     <h1>Like Counter{likes}</h1>
-                    <button onClick={()=> setLikes(likes + 1)}>Likes</button>
+                    <button onClick={()=> setLikes(likes + 1)}>Likes</button> 
                 </div>
             )
         }
 
-        ReactDOM.render(<Homepage/>, app);
+        ReactDOM.render(<Homepage/>, app); //This line uses ReactDOM.render to render the Homepage component into the DOM element with the ID app.
     </script>
     
 </body>
